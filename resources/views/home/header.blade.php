@@ -10,36 +10,21 @@
                         <li class="nav-item ">
                            <a class="nav-link" href="{{url('/')}}">Home  </a>
                         </li>
-                       
+
                         <li class="nav-item">
                            <a class="nav-link" href="{{url('products')}}">Products</a>
                         </li>
-                       
+
                         <li class="nav-item">
                            <a class="nav-link" href="{{url('contact')}}">Contact</a>
                         </li>
 
-                       
 
 
-                        @if (Route::has('login'))
-
-                        @auth
 
                         <li class="nav-item">
-                           <a class="nav-link"  style="background-color: skyblue; " href="{{url('show_cart')}}">Cart [ <span style="color: green;">{{$cart_count}} ]</span></a>
-                        </li>
-
-                        @else
-
-                         <li class="nav-item">
-                           <a class="nav-link"  style="background-color: skyblue; " href="{{url('show_cart')}}">Cart [ 0 ]</a>
-                        </li>
-
-                       
-                        @endauth
-
-                        @endif
+                            <a class="nav-link"  style="background-color: skyblue; " href="{{url('show_cart')}}">Cart [ <span style="color: green;">{{$cart_count}} ]</span></a>
+                         </li>
 
 
                            @auth
@@ -56,17 +41,17 @@
                            <a class="nav-link"  style="background-color: lavender; " href="{{url('show_order')}}">Order [ 0 ]</a>
                         </li>
 
-                       
+
                         @endauth
 
 
-                       
+
 
                         @if (Route::has('login'))
 
                         @auth
 
-                       
+
                   <div class="dropdown">
 
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -79,27 +64,27 @@
 
                       <form class="dropdown-item"  method="POST" action="{{ route('logout') }}">
                           @csrf
-                         
+
                               <a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                                           this.closest('form').submit(); " role="button">
-                                  
+
 
                                   {{ __('Log Out') }}
                               </a>
-                          
+
                       </form>
 
-                       
-                             
-                             
+
+
+
                     </div>
 
                   </div>
-                    
-                     
-                         
-                        
-                 
+
+
+
+
+
               </li>
             </ul>
 
@@ -115,8 +100,8 @@
                         @endauth
 
                         @endif
-                        
-                        
+
+
                      </ul>
                   </div>
                </nav>
