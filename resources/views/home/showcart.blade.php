@@ -121,17 +121,37 @@
 
             <div>
 
-                <h1 style="font-size: 25px; padding-bottom: 15px;">Proceed to Order</h1>
+                <h1 style="font-size: 25px; padding-bottom: 15px;">Proceed to Checkout</h1>
+                <div style="padding: 10px; width: 75%; margin: auto">
+                    <form action="{{url('cash_order',$totalproduct)}}" method="POST">
+                        @csrf
+                        <div style="text-align: left">
+                            <label>Name</label>
+                            <input type="text" name="name" value="{{ $user->name }}" required/>
+                        </div>
+                        <div style="text-align: left">
+                            <label>Email</label>
+                            <input type="email" name="email" value="{{ $user->email }}" required/>
+                        </div>
+                        <div style="text-align: left">
+                            <label>Phone Number</label>
+                            <input type="number" name="phone" value="{{ $user->phone }}" required/>
+                        </div>
+                        <div style="text-align: left">
+                            <label>Address</label>
+                            <input type="text" name="address" value="{{ $user->address }}" required/>
+                        </div>
+                        <div style="text-align: left; display: none" id="password">
 
-                <div style="padding-bottom: 20px;">
-                    <a href="{{ url('cash_order', $totalproduct) }}" class="btn btn-danger">Cash On Delivery</a>
-
-                </div>
-
-                <div>
-
-                    <a href="{{ url('stripe', $totalprice) }}" class="btn btn-danger">Pay Using Card</a>
-
+                        </div>
+                        @if($user->name == '')
+                        <div style="text-align: left display: flex">
+                            <input type="checkbox" name="createAnAccount" id="create" onchange="Check(this)" style="width: 20px"/>
+                            <label for="create">Create an Account?</label>
+                        </div>
+                        @endif
+                        <input type="submit" value='Cash On Delivery' />
+                    </form>
                 </div>
 
             </div>
@@ -143,6 +163,7 @@
 
 
         </div>
+
 
 
         <!-- footer start -->
@@ -204,6 +225,8 @@
         <script src="{{ asset('home/js/bootstrap.js') }}"></script>
         <!-- custom js -->
         <script src="{{ asset('home/js/custom.js') }}"></script>
+
+        <script src="{{ asset('js/myfunction.js') }}"></script>
 </body>
 
 </html>
