@@ -20,9 +20,11 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+      <script src="https://kit.fontawesome.com/d5cb570415.js" crossorigin="anonymous"></script>
 
 <style type="text/css">
-  html,body{
+
+html,body{
     overflow-x: hidden;
 }
 
@@ -32,8 +34,7 @@
       width: 650px;
 }
 
-
- @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .search_box{
     width: 300px;
@@ -46,5 +47,57 @@ input[type=number]::-webkit-outer-spin-button {
    opacity: 1;
 
 }
- 
+
+/* Cart Icon with count number */
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px; 
+}
+
+/* Login and Register */
+.btn-login {
+  border-color: #7FAD39;
+  color: #7FAD39;
+}
+
+.btn-login:hover {
+  background: #7FAD39;
+  border-color: #7FAD39;
+  color: white;
+}
+
+
+.btn-register {
+  background: #7FAD39;
+  border-color: #7FAD39;
+  color: white;
+}
+
+.btn-register:hover {
+  background: #70a324;
+  border-color: #7FAD39;
+  color: white;
+}
+
+
+
+
+
+
 </style>
