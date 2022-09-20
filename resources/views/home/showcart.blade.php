@@ -65,7 +65,7 @@
 
 
 
-
+{{ $cart_count }}
 
         <div class="center" style="overflow-x:auto;">
 
@@ -86,28 +86,27 @@
 
                 <?php $totalproduct = 0; ?>
 
-                @foreach ($cart as $cart)
-                    <tr>
+                @foreach ((array) $cart as $key => $cart)
+                        <tr>
 
-                        <td>{{ $cart->product_title }}</td>
-                        <td>{{ $cart->quantity }}</td>
-                        <td>₱{{ $cart->price }}</td>
-                        <td><img class="img_deg" src="{{ asset('/product/' . $cart->image) }}"></td>
-                        <td>
+                            <td>{{ $cart['product_title'] }}</td>
+                            <td>{{ $cart['quantity'] }}</td>
+                            <td>₱{{ $cart['price'] }}</td>
+                            <td><img class="img_deg" src="{{ asset('/product/' . $cart['image']) }}"></td>
+                            <td>
 
-                            <a class="btn btn-danger" onclick="confirmation(event)"
-                                href="{{ url('/remove_cart', $cart->id) }}">Remove Product</a>
-
-
-                        </td>
+                                <a class="btn btn-danger" onclick="confirmation(event)"
+                                    href="{{ url('/remove_cart', $key) }}">Remove Product</a>
 
 
-                    </tr>
-                    <?php $totalproduct++; ?>
+                            </td>
 
-                    <?php $totalprice = $totalprice + $cart->price; ?>
-                @endforeach
 
+                        </tr>
+                        <?php $totalproduct++; ?>
+
+                        <?php $totalprice = $totalprice + $cart['price']; ?>
+                 @endforeach
 
 
             </table>
