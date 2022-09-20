@@ -71,7 +71,7 @@ route::get('/message',[AdminController::class,'message']);
 route::get('/customer',[AdminController::class,'customer']);
 
 
- 
+
 
 route::get('/product_details/{id}',[HomeController::class,'product_details']);
 
@@ -83,7 +83,7 @@ route::get('/show_cart',[HomeController::class,'show_cart']);
 route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
 
 
-route::get('/cash_order/{totalproduct}',[HomeController::class,'cash_order']);
+route::post('/cash_order/{totalproduct}',[HomeController::class,'cash_order']);
 
 
 route::get('/stripe/{totalprice}',[HomeController::class,'stripe']);
