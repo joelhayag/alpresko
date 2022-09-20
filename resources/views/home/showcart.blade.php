@@ -23,10 +23,13 @@
 
         }
 
+        th {
+            background: #7FAD39 !important;
+        }
+
         table,
         th,
         td {
-
             border: 1px solid grey;
         }
 
@@ -65,18 +68,17 @@
 
 
 
-{{ $cart_count }}
+        {{-- {{ $cart_count }} --}}
 
         <div class="center" style="overflow-x:auto;">
 
-            <table style=" margin-left: auto;
-  margin-right: auto;">
+            <table style=" margin-left: auto; margin-right: auto;">
 
                 <tr>
 
-                    <th class="th_deg">Product title</th>
-                    <th class="th_deg">product quantity</th>
-                    <th class="th_deg">price</th>
+                    <th class="th_deg">Product Name</th>
+                    <th class="th_deg">Quantity</th>
+                    <th class="th_deg">Price</th>
                     <th class="th_deg">Image</th>
                     <th class="th_deg">Action</th>
 

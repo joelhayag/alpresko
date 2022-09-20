@@ -23,23 +23,32 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link"  style="background-color: skyblue; " href="{{url('show_cart')}}">Cart [ <span style="color: green;">{{$cart_count}} ]</span></a>
-                         </li>
+                            <a class="nav-link" href="{{url('show_cart')}}">
+                              <i class="nav-icon fa fa-cart-shopping"></i>
+                              <span class='badge badge-warning' id='lblCartCount'> {{$cart_count}} </span>
+                           </a>
+                        </li>
 
 
                            @auth
 
-                        <li class="nav-item" style="padding-left: 10px!important;
-                        padding-right: 10px!important">
-                           <a class="nav-link"  style="background-color: lavender; " href="{{url('show_order')}}">Order [ <span style="color: green;">{{App\Models\Order::where('user_id','=',Auth::user()->id)->count()}} ]</span></a>
+                        <li class="nav-item">
+                           <a class="nav-link" href="{{url('show_order')}}">
+                              <i class="fa-solid fa-bag-shopping"></i>
+                              <span class='badge badge-warning' id='lblCartCount'> 
+                                 {{App\Models\Order::where('user_id','=',Auth::user()->id)->count()}}
+                              </span>
+                           </a>
                         </li>
 
                         @else
 
-                         <li class="nav-item" style="padding-left: 10px!important;
-                        padding-right: 10px!important">
-                           <a class="nav-link"  style="background-color: lavender; " href="{{url('show_order')}}">Order [ 0 ]</a>
-                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="{{url('show_order')}}">
+                             <i class="nav-icon fa fa-bag-shopping"></i>
+                             <span class='badge badge-warning' id='lblCartCount'> 0 </span>
+                          </a>
+                       </li>
 
 
                         @endauth
@@ -52,50 +61,37 @@
                         @auth
 
 
-                  <div class="dropdown">
+                           <div class="dropdown">
 
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     {{Auth::user()->name}}
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{Auth::user()->name}}
+                           </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                     <a class="dropdown-item" href="{{ route('profile.show') }}">
-                     <span class="btn btn-primary">   {{ __('Profile') }} </span><a/>
+                                 <a class="dropdown-item" href="{{ route('profile.show') }}">
+                                 <span class="btn btn-primary">   {{ __('Profile') }} </span><a/>
 
-                      <form class="dropdown-item"  method="POST" action="{{ route('logout') }}">
-                          @csrf
+                                 <form class="dropdown-item"  method="POST" action="{{ route('logout') }}">
+                                    @csrf
 
-                              <a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                          this.closest('form').submit(); " role="button">
+                                          <a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                      this.closest('form').submit(); " role="button">
+                                             {{ __('Log Out') }}
+                                          </a>
+                                 </form>
+                              </div>
 
+                           </div>
 
-                                  {{ __('Log Out') }}
-                              </a>
-
-                      </form>
-
-
-
-
-                    </div>
-
-                  </div>
-
-
-
-
-
-              </li>
-            </ul>
 
                         @else
 
-                        <li class="nav-item">
-                           <a class="btn btn-primary" id="logincss" href="{{ route('login') }}">Login</a>
+                        <li class="nav-item mt-1 mr-1">
+                           <a class="btn btn-login" href="{{ route('login') }}">Login</a>
                         </li>
 
-                        <li class="nav-item">
-                           <a class="btn btn-success" href="{{ route('register') }}">Register</a>
+                        <li class="nav-item mt-1 mr-1">
+                           <a class="btn btn-register" href="{{ route('register') }}">Register</a>
                         </li>
                         @endauth
 
