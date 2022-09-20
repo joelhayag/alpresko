@@ -311,6 +311,11 @@ class HomeController extends Controller
 
                 $order->delivery_status = 'processing';
 
+                $product=product::find($key);
+
+                $product->quantity = $product->quantity - $data['quantity'];
+
+                $product->save();
 
                 $order->save();
             }
