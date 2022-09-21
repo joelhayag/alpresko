@@ -309,7 +309,7 @@ a:focus {
 }
 
 .slider_section .detail-box a:hover {
-  background-color: transparent;
+  background-color: #d6f1ad;
   color: #7fad39;
 }
 
@@ -488,7 +488,7 @@ a:focus {
 }
 
 .product_section .options .option1:hover {
-  background-color: transparent;
+  background-color: #d6f1ad;
   color: #7fad39;
 }
 

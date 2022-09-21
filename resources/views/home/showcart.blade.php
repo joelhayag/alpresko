@@ -89,26 +89,26 @@
                 <?php $totalproduct = 0; ?>
 
                 @foreach ((array) $cart as $key => $cart)
-                        <tr>
+                    <tr>
 
-                            <td>{{ $cart['product_title'] }}</td>
-                            <td>{{ $cart['quantity'] }}</td>
-                            <td>₱{{ $cart['price'] }}</td>
-                            <td><img class="img_deg" src="{{ asset('/product/' . $cart['image']) }}"></td>
-                            <td>
+                        <td>{{ $cart['product_title'] }}</td>
+                        <td>{{ $cart['quantity'] }}</td>
+                        <td>₱{{ $cart['price'] }}</td>
+                        <td><img class="img_deg" src="{{ asset('/product/' . $cart['image']) }}"></td>
+                        <td>
 
-                                <a class="btn btn-danger" onclick="confirmation(event)"
-                                    href="{{ url('/remove_cart', $key) }}">Remove Product</a>
-
-
-                            </td>
+                            <a class="btn btn-danger" onclick="confirmation(event)"
+                                href="{{ url('/remove_cart', $key) }}">Remove Product</a>
 
 
-                        </tr>
-                        <?php $totalproduct++; ?>
+                        </td>
 
-                        <?php $totalprice = $totalprice + $cart['price']; ?>
-                 @endforeach
+
+                    </tr>
+                    <?php $totalproduct++; ?>
+
+                    <?php $totalprice = $totalprice + $cart['price'] * $cart['quantity']; ?>
+                @endforeach
 
 
             </table>
@@ -125,32 +125,33 @@
 
                 <h1 style="font-size: 25px; padding-bottom: 15px;">Proceed to Checkout</h1>
                 <div style="padding: 10px; width: 75%; margin: auto">
-                    <form action="{{url('cash_order',$totalproduct)}}" method="POST">
+                    <form action="{{ url('cash_order', $totalproduct) }}" method="POST">
                         @csrf
                         <div style="text-align: left">
                             <label>Name</label>
-                            <input type="text" name="name" value="{{ $user->name }}" required/>
+                            <input type="text" name="name" value="{{ $user->name }}" required />
                         </div>
                         <div style="text-align: left">
                             <label>Email</label>
-                            <input type="email" name="email" value="{{ $user->email }}" required/>
+                            <input type="email" name="email" value="{{ $user->email }}" required />
                         </div>
                         <div style="text-align: left">
                             <label>Phone Number</label>
-                            <input type="number" name="phone" value="{{ $user->phone }}" required/>
+                            <input type="number" name="phone" value="{{ $user->phone }}" required />
                         </div>
                         <div style="text-align: left">
                             <label>Address</label>
-                            <input type="text" name="address" value="{{ $user->address }}" required/>
+                            <input type="text" name="address" value="{{ $user->address }}" required />
                         </div>
                         <div style="text-align: left; display: none" id="password">
 
                         </div>
-                        @if($user->name == '')
-                        <div style="text-align: left display: flex">
-                            <input type="checkbox" name="createAnAccount" id="create" onchange="Check(this)" style="width: 20px"/>
-                            <label for="create">Create an Account?</label>
-                        </div>
+                        @if ($user->name == '')
+                            <div style="text-align: left display: flex">
+                                <input type="checkbox" name="createAnAccount" id="create" onchange="Check(this)"
+                                    style="width: 20px" />
+                                <label for="create">Create an Account?</label>
+                            </div>
                         @endif
                         <input type="submit" value='Cash On Delivery' />
                     </form>

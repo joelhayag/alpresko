@@ -59,7 +59,7 @@ class HomeController extends Controller
 
                 return view('admin.home', compact('total_product', 'total_order', 'total_user', 'total_revenue', 'total_delivered', 'total_processing'));
             } elseif ($usertype == '0') {
-                $product = Product::orderby('id', 'desc')->paginate(12);
+                $product = Product::orderby('id', 'desc')->paginate(9);
 
                 $comment = comment::orderby('id', 'desc')->get();
 
@@ -71,12 +71,10 @@ class HomeController extends Controller
 
                 $cart_count = count((array)(session('cart')));
 
-
-
                 return view('home.userpage', compact('product', 'comment', 'reply', 'cart_count'));
             }
         } else {
-            $product = Product::orderby('id', 'desc')->paginate(6);
+            $product = Product::orderby('id', 'desc')->paginate(9);
 
 
             $comment = comment::orderby('id', 'desc')->get();
@@ -120,7 +118,7 @@ class HomeController extends Controller
 
             return view('admin.home', compact('total_product', 'total_order', 'total_user', 'total_revenue', 'total_delivered', 'total_processing'));
         } else {
-            $product = Product::orderby('id', 'desc')->paginate(12);
+            $product = Product::orderby('id', 'desc')->paginate(9);
 
             $comment = comment::orderby('id', 'desc')->get();
 
@@ -185,7 +183,7 @@ class HomeController extends Controller
         if (!$cart) {
             $cart = null;
         }
-        $user = new User;
+        $user = new User();
         if (Auth::id()) {
             $user->id = Auth::user()->id;
             $authUser = User::find($user->id);
@@ -242,7 +240,7 @@ class HomeController extends Controller
 
     public function cash_order(Request $request, $totalproduct)
     {
-        $user = new User;
+        $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
@@ -267,7 +265,6 @@ class HomeController extends Controller
             $user->email = $authUser->email;
             $user->phone = $authUser->phone;
             $user->address = $authUser->address;
-
         } else {
             $user->save();
         }
@@ -277,8 +274,6 @@ class HomeController extends Controller
 
             return redirect()->back();
         } else {
-
-
             $data = session('cart');
 
             foreach ((array)$data as $key => $data) {
@@ -511,14 +506,14 @@ class HomeController extends Controller
 
         $serach_text = $request->search;
 
-        $product = product::where('title', 'LIKE', "%$serach_text%")->orWhere('category', 'LIKE', "$serach_text")->orderby('id', 'desc')->paginate(6);
+        $product = product::where('title', 'LIKE', "%$serach_text%")->orWhere('category', 'LIKE', "$serach_text")->orderby('id', 'desc')->paginate(9);
 
         return view('home.userpage', compact('product', 'comment', 'reply', 'cart_count'));
     }
 
     public function product()
     {
-        $product = Product::paginate(12);
+        $product = Product::paginate(9);
 
         $comment = comment::orderby('id', 'desc')->get();
 
@@ -540,7 +535,7 @@ class HomeController extends Controller
 
         $serach_text = $request->search;
 
-        $product = product::where('title', 'LIKE', "%$serach_text%")->orWhere('category', 'LIKE', "$serach_text")->paginate(12);
+        $product = product::where('title', 'LIKE', "%$serach_text%")->orWhere('category', 'LIKE', "$serach_text")->paginate(9);
 
         return view('home.all_product', compact('product', 'comment', 'reply', 'cart_count'));
     }
