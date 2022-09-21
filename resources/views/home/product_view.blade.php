@@ -54,8 +54,7 @@
 
                                         <div style="padding-left: 14px!important; margin: auto;">
 
-                                            <input type="submit" style="background-color: skyblue!important"
-                                                value="Add To Cart">
+                                            <input type="submit" value="Add To Cart">
 
                                         </div>
 

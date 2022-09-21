@@ -10,33 +10,30 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <style type="text/css">
-        .title_deg {
-
-            text-align: center;
-            font-size: 25px;
-            font-weight: bold;
-            padding-bottom: 40px;
-
-
+        .font_size {
+            font-size: 40px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            color: black;
         }
 
 
-        .table_deg {
-            border: 2px solid white;
-            width: 80%;
-
-
-            text-align: center;
-
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
 
 
         .th_deg {
-            background-color: skyblue;
-
-
+            background: #7FAD39;
         }
 
+        td {
+            background: white;
+            color: black;
+            text-align: center;
+        }
 
         .img_size {
             width: 100px;
@@ -63,22 +60,21 @@
 
 
         <div class="main-panel">
-            <div class="content-wrapper">
+            <div class="content-wrapper" style="background: rgb(181, 180, 180)">
 
-                <h1 class="title_deg">All Orders</h1>
+                <h1 class="font_size">All Orders</h1>
 
 
-                <div class="center">
+                <div class="center pt-5">
 
                     <form action="{{ url('search') }}" method="get">
 
                         @csrf
 
                         <input type="text" style="color: black; width: 70%;" name="search"
-                            placeholder="Search For Something">
+                            placeholder="Search order...">
 
-
-                        <input type="submit" value="Search" class="btn btn-outline-primary">
+                        <input type="submit" class="btn btn-primary" name="submit" value="Search">
 
                     </form>
 
@@ -86,7 +82,7 @@
                 </div>
 
                 <div style="overflow-x:auto;">
-                    <table class="table_deg">
+                    <table>
 
 
                         <tr class="th_deg">
