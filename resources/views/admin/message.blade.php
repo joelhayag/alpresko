@@ -6,36 +6,38 @@
     @include('admin.css')
 
     <style type="text/css">
-      
-    
 
-      .font_size
-      {
-        text-align: center;
-        font-size: 40px;
-        padding-top: 20px;
-      }
+      .font_size {
+            font-size: 40px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            color: black;
+        }
 
       
 
       .th_color
       {
-        background: skyblue;
+        background: #7FAD39;
       }
 
-
+      td {
+            background: white;
+            color: black;
+        }
       
       table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
 
 tr:nth-child(even) {
  
@@ -54,7 +56,7 @@ tr:nth-child(even) {
         <!-- partial -->
 
          <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="content-wrapper" style="background: rgb(181, 180, 180)">
 
 
             @if(session()->has('message'))

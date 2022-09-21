@@ -20,6 +20,9 @@
             text-align: center;
         }
 
+        th {
+            background: #7FAD39 !important;
+        }
 
         table,
         th,
@@ -54,7 +57,7 @@
             <table>
 
                 <tr>
-                    <th class="th_deg">Product Title</th>
+                    <th class="th_deg">Product Name</th>
 
                     <th class="th_deg">Quantity</th>
 

@@ -1,6 +1,8 @@
  <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a style="color: white;"  href="{{url('/redirect')}}">Admin</a>
+          <a style="color: white; font-size: 30px;"  href="{{url('/redirect')}}">
+            Alpresko
+          </a>
           
         </div>
         <ul class="nav">
@@ -63,7 +65,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('order')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
+                <i class="mdi mdi-cart"></i>
               </span>
               <span class="menu-title">Order</span>
             </a>
@@ -73,7 +75,7 @@
            <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('message')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
+                <i class="mdi mdi-message"></i>
               </span>
               <span class="menu-title">Messages</span>
             </a>
@@ -83,7 +85,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('customer')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
+                <i class="mdi mdi-human"></i>
               </span>
               <span class="menu-title">All Customers</span>
             </a>

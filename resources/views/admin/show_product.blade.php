@@ -9,24 +9,27 @@
       
       .center
       {
-        margin:auto;
-        width: 50%;
-        border: 2px solid white;
+        border: 1px solid #dddddd;
         text-align: center;
-        margin-top: 40px;
+        padding: 8px;
       }
 
-      .font_size
-      {
-        text-align: center;
-        font-size: 40px;
-        padding-top: 20px;
+      .font_size {
+          font-size: 40px;
+          padding-top: 10px;
+          color: black;
       }
 
       .img_size
       {
         width: 150px;
         height: 150px;
+      }
+
+      td {
+          background: white;
+          color: black;
+          text-align: center;
       }
 
       .th_color
@@ -36,6 +39,7 @@
 
       .th_deg
       {
+        background: #7FAD39;
         padding: 30px;
       }
 
@@ -51,7 +55,7 @@
         <!-- partial -->
 
          <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="content-wrapper" style="background: rgb(181, 180, 180)">
 
 
             @if(session()->has('message'))
@@ -103,7 +107,7 @@
                 </td>
 
                 <td>
-                  <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_product',$product->id)}}">Detele</a>
+                  <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_product',$product->id)}}">Delete</a>
                 </td>
 
                 <td>
