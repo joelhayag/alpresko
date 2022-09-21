@@ -30,14 +30,14 @@
 
                 @if ($product->discount_price != null)
                     <h6 style="color: red">
-                        Discount price
+                        Discounted
                         <br>
                         ₱{{ $product->discount_price }}
                     </h6>
 
 
                     <h6 style="text-decoration: line-through; color: blue">
-                        Price
+
                         <br>
                         ₱{{ $product->price }}
                     </h6>
