@@ -68,7 +68,7 @@ h2 {
 .heading_container h2::after {
     content: "";
     display: block;
-    width: 70px;
+    width: 560px;
     height: 5px;
     background: #7fad39;
     margin: 10px auto 10px;
@@ -309,7 +309,9 @@ a:focus {
 }
 
 .slider_section .detail-box a:hover {
-  background-color: #d6f1ad;
+  background-color: #333;
+  border: 1px solid #333;
+
   color: #7fad39;
 }
 
@@ -373,8 +375,8 @@ a:focus {
     -webkit-transition: all .3s;
     transition: all .3s;
     overflow: hidden;
-    box-shadow: 5px 5px 5px -5px rgba(0,0,0,.2);
-    border: solid #fff 10px;
+    box-shadow: 5px 5px 5px -5px rgba(0,0,0,.12);
+    border: solid rgb(125, 124, 124) 2px;
 }
 
 .product_section .box .img-box {

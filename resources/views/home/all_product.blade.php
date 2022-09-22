@@ -31,18 +31,15 @@
 
 
 
+        <br />
+        <br />
+        <br />
 
 
-        <div class="cpy_">
-            <p class="mx-auto">Copyright ©
-                <script>
-                    document.write(new Date().getFullYear());
-                </script> All Rights Reserved<br>
+        <!-- footer start -->
+        @include('home.footer')
+        <!-- footer end -->
 
-                For KodeGo Capstone Project (B13-Group2)
-
-            </p>
-        </div>
 
 
         <script type="text/javascript">

@@ -2,10 +2,26 @@
 <html>
 
 <head>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
         integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+        function checkPasswordMatch() {
+            var password = $("#txtNewPassword").val();
+            var confirmPassword = $("#txtConfirmPassword").val();
+            if (password != confirmPassword)
+                $("#CheckPasswordMatch").html("Passwords does not match!");
+            else
+                $("#CheckPasswordMatch").html("Passwords match.");
+        }
+        $(document).ready(function() {
+            $("#txtConfirmPassword").keyup(checkPasswordMatch);
+        });
+    </script>
+
 
     @include('home.css')
 
@@ -72,7 +88,7 @@
 
         <div class="center" style="overflow-x:auto;">
 
-            <table style=" margin-left: auto; margin-right: auto;">
+            <table style="width:70%; margin-left: auto; margin-right: auto;">
 
                 <tr>
 
@@ -98,7 +114,7 @@
                         <td>
 
                             <a class="btn btn-danger" onclick="confirmation(event)"
-                                href="{{ url('/remove_cart', $key) }}">Remove Product</a>
+                                href="{{ url('/remove_cart', $key) }}">Remove</a>
 
 
                         </td>
@@ -115,7 +131,7 @@
 
             <div>
 
-                <h1 class="total_deg">Total Price : ₱{{ $totalprice }}</h1>
+                <h1 class="total_deg"><strong><u>Total Price : ₱{{ $totalprice }}</u></strong></h1>
 
 
             </div>
@@ -123,71 +139,78 @@
 
             <div>
 
-                <h1 style="font-size: 25px; padding-bottom: 15px;">Proceed to Checkout</h1>
+                <div>
+                    <h1 style="color: #7FAD39">
+                        <strong>Please fill out the form below to process your order!</strong>
+                    </h1>
+                </div>
                 <div style="padding: 10px; width: 75%; margin: auto">
                     <form action="{{ url('cash_order', $totalproduct) }}" method="POST">
                         @csrf
-                        <div style="text-align: left">
-                            <label>Name</label>
-                            <input type="text" name="name" value="{{ $user->name }}" required />
-                        </div>
-                        <div style="text-align: left">
-                            <label>Email</label>
-                            <input type="email" name="email" value="{{ $user->email }}" required />
-                        </div>
-                        <div style="text-align: left">
-                            <label>Phone Number</label>
-                            <input type="number" name="phone" value="{{ $user->phone }}" required />
-                        </div>
-                        <div style="text-align: left">
-                            <label>Address</label>
-                            <input type="text" name="address" value="{{ $user->address }}" required />
-                        </div>
+                        @if ($user->name == '')
+                            <div style="text-align: left">
+                                <label>Name</label>
+                                <input type="text" name="name" value="{{ $user->name }}" required />
+                            </div>
+                            <div style="text-align: left">
+                                <label>Email</label>
+                                <input type="email" name="email" value="{{ $user->email }}" required />
+                            </div>
+                            <div style="text-align: left">
+                                <label>Phone Number</label>
+                                <input type="number" name="phone" value="{{ $user->phone }}" required />
+                            </div>
+                            <div style="text-align: left">
+                                <label>Address</label>
+                                <input type="text" name="address" value="{{ $user->address }}" required />
+                            </div>
+                        @else
+                            <div style="text-align: left">
+                                <input type="hidden" name="name" value="{{ $user->name }}" required />
+                            </div>
+                            <div style="text-align: left">
+                                <input type="hidden" name="email" value="{{ $user->email }}" required />
+                            </div>
+                            <div style="text-align: left">
+                                <input type="hidden" name="phone" value="{{ $user->phone }}" required />
+                            </div>
+                            <div style="text-align: left">
+                                <input type="hidden" name="address" value="{{ $user->address }}" required />
+                            </div>
+                        @endif
+
                         <div style="text-align: left; display: none" id="password">
 
                         </div>
+                        <br />
+
                         @if ($user->name == '')
                             <div style="text-align: left display: flex">
                                 <input type="checkbox" name="createAnAccount" id="create" onchange="Check(this)"
                                     style="width: 20px" />
-                                <label for="create">Create an Account?</label>
+                                <label for="create">Create an Account? Creating an account will let you view
+                                    your order history</label>
+
                             </div>
                         @endif
-                        <input type="submit" value='Cash On Delivery' />
+                        <br />
+                        <input type="submit" value='SUBMIT ORDER' />
+                        <br /><br />
                     </form>
                 </div>
 
             </div>
 
 
-
-
-
-
-
         </div>
+        <br />
+        <br />
 
-
+        <br />
 
         <!-- footer start -->
-
+        @include('home.footer')
         <!-- footer end -->
-
-        <div style="padding-top: 215px;">
-            <div class="cpy_">
-                <p class="mx-auto">Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script> All Rights Reserved<br>
-
-                    For KodeGo Capstone Project (B13-Group2)
-
-                </p>
-            </div>
-
-        </div>
-
-
 
         <script>
             function confirmation(ev) {
@@ -230,6 +253,7 @@
         <script src="{{ asset('home/js/custom.js') }}"></script>
 
         <script src="{{ asset('js/myfunction.js') }}"></script>
+
 </body>
 
 </html>

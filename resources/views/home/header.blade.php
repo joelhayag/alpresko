@@ -30,26 +30,26 @@
                     </li>
 
 
-                    {{-- @auth
+                    @auth
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('show_order') }}">
-                                <i class="fa-solid fa-bag-shopping"></i>
+                                My Orders&nbsp;
                                 <span class='badge badge-warning' id='lblCartCount'>
                                     {{ App\Models\Order::where('user_id', '=', Auth::user()->id)->count() }}
                                 </span>
                             </a>
                         </li>
-                    @else
+                        {{-- @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('show_order') }}">
                                 <i class="nav-icon fa fa-bag-shopping"></i>
                                 <span class='badge badge-warning' id='lblCartCount'> 0 </span>
                             </a>
-                        </li>
+                        </li> --}}
 
 
-                    @endauth --}}
+                    @endauth
 
 
 
