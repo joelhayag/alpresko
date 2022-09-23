@@ -11,7 +11,7 @@
 
                     @csrf
 
-                    <input class="search_box" type="text" name="search" placeholder="Search for Something">
+                    <input class="search_box" type="text" name="search" placeholder="Search . . .">
 
                     <input type="submit" value="search">
 
@@ -21,6 +21,13 @@
 
         </div>
 
+        <div class="row">
+            <span style="padding-top: 20px;">
+
+                {!! $product->withQueryString()->links('pagination::bootstrap-4') !!}
+
+            </span>
+        </div>
 
         <div class="row">
 
@@ -83,12 +90,13 @@
                                 </h6>
 
 
-                                <h6 style="text-decoration: line-through; color: blue">
+                                <h6 style="text-decoration: line-through; color: #007BFF">
+                                    Price
                                     <br>
                                     ₱{{ $products->price }}
                                 </h6>
                             @else
-                                <h6 style="color: blue">
+                                <h6 style="color: #007BFF">
                                     Price
                                     <br>
                                     ₱{{ $products->price }}
@@ -103,12 +111,14 @@
                 </div>
             @endforeach
 
+
+        </div>
+
+        <div class="row">
             <span style="padding-top: 20px;">
 
-                {!! $product->withQueryString()->links('pagination::bootstrap-5') !!}
+                {!! $product->withQueryString()->links('pagination::bootstrap-4') !!}
 
             </span>
-
-
         </div>
 </section>

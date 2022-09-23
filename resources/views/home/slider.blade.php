@@ -20,7 +20,7 @@
                                     Organic farm fresh fruit delivered to your door.
                                 </p>
                                 <div class="btn-box">
-                                    <a href="" class="btn1">
+                                    <a href="#featured" class="btn1">
                                         Shop Now
                                     </a>
                                 </div>
@@ -45,7 +45,7 @@
                                     Produce that varies by season, region, and availability.
                                 </p>
                                 <div class="btn-box">
-                                    <a href="" class="btn1">
+                                    <a href="#featured" class="btn1">
                                         Shop Now
                                     </a>
                                 </div>
@@ -70,7 +70,7 @@
                                     Healthy, delicious, clean-ingredient snacks.
                                 </p>
                                 <div class="btn-box">
-                                    <a href="" class="btn1">
+                                    <a href="#featured" class="btn1">
                                         Shop Now
                                     </a>
                                 </div>

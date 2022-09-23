@@ -1,8 +1,8 @@
 <section class="product_section layout_padding">
     <div class="container">
-        <div class="heading_container heading_center">
+        <div id="featured" class="heading_container heading_center">
             <h2>
-                Our <span>products</span>
+                Featured <span>Products</span>
             </h2>
 
             <br><br>
@@ -14,7 +14,7 @@
 
                     @csrf
 
-                    <input class="search_box" type="text" name="search" placeholder="Search for Something">
+                    <input class="search_box" type="text" name="search" placeholder="Search . . .">
 
                     <input type="submit" value="search">
 
@@ -23,6 +23,15 @@
             </div>
 
         </div>
+
+        <div class="row">
+            <span style="padding-top: 20px;">
+
+                {!! $product->withQueryString()->links('pagination::bootstrap-4') !!}
+
+            </span>
+        </div>
+
 
         <div class="row">
 
@@ -85,13 +94,13 @@
                                 </h6>
 
 
-                                <h6 style="text-decoration: line-through; color: blue">
-
+                                <h6 style="text-decoration: line-through; color: #007BFF">
+                                    Price
                                     <br>
                                     ₱{{ $products->price }}
                                 </h6>
                             @else
-                                <h6 style="color: blue">
+                                <h6 style="color: #007BFF">
                                     Price
                                     <br>
                                     ₱{{ $products->price }}
@@ -106,12 +115,14 @@
                 </div>
             @endforeach
 
-            <span style="padding-top: 20px;">
 
-                {!! $product->withQueryString()->links('pagination::bootstrap-5') !!}
+        </div>
+
+        <div class="row">
+            <span style="padding-top: 50px;">
+
+                {!! $product->withQueryString()->links('pagination::bootstrap-4') !!}
 
             </span>
-
-
         </div>
 </section>
