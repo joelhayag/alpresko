@@ -15,8 +15,10 @@
 
     	.h2_font
     	{
-    		font-size: 40px;
-    		padding-bottom: 40px;
+        font-size: 40px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: black;
     	}
 
     	.input_color
@@ -24,13 +26,21 @@
     		color: black;
     	}
 
+      .th_color {
+        background: #7FAD39;
+      }
+
+      td {
+            background: white;
+            color: black;
+        }
+
       .center
       {
         margin: auto;
         width: 50%;
         text-align: center;
         margin-top: 30px;
-        border: 3px solid white;
       }
     </style>
 
@@ -43,7 +53,7 @@
       @include('admin.header')
         <!-- partial -->
       <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="content-wrapper" style="background: rgb(181, 180, 180)">
 
           	@if(session()->has('message'))
 
@@ -65,7 +75,7 @@
 
           			@csrf
           			
-          	<input class="input_color" type="text" name="category" placeholder="Write category name">
+          	<input class="input_color" type="text" name="category" placeholder="Write category name...">
 
           			<input type="submit" class="btn btn-primary" name="submit" value="Add Category">
           		</form>
@@ -77,8 +87,8 @@
             <table class="center">
               
               <tr>
-                <td>Category Name</td>
-                <td>Action</td>
+                <th class="th_color">Category Name</th>
+                <th class="th_color">Action</th>
               </tr>
 
 

@@ -1,9 +1,16 @@
 <div class="main-panel">
-    <div class="content-wrapper">
 
 
-        <div class="row">
-            <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div class="content-wrapper" style="background: rgb(181, 180, 180)">
+           
+            <h2 style="font-size: 40px;
+                      padding-top: 10px;
+                      color: black;">
+              Dashboard
+            </h2>
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+
                 <div class="card">
                     <div class="card-body">
                         <div class="row">

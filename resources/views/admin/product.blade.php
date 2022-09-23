@@ -14,10 +14,11 @@
         padding-top: 40px;
       }
 
-      .font_size
-      {
+      .font_size {
         font-size: 40px;
-        padding-bottom: 40px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: black;
       }
 
       .text_color
@@ -37,6 +38,11 @@
         padding-bottom: 15px;
       }
 
+      .formAddProduct {
+        border: 1px solid black;
+        padding: 25px;
+        background: gray;
+      }
 
     </style>
 
@@ -49,7 +55,7 @@
       @include('admin.header')
         <!-- partial -->
        <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="content-wrapper" style="background: rgb(181, 180, 180)">
 
 
             @if(session()->has('message'))
@@ -72,7 +78,7 @@
               <h1 class="font_size">Add Product</h1>
 
 
-              <form action="{{url('/add_product')}}" method="POST" enctype="multipart/form-data">
+              <form class="formAddProduct" action="{{url('/add_product')}}" method="POST" enctype="multipart/form-data">
 
               @csrf
 
